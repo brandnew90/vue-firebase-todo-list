@@ -1,20 +1,19 @@
 <template>
-  <div class="todo">
-    <h1>ToDo List</h1>
-    <h3 v-if="items.length == 0">No hay tareas pendientes</h3>
-    <ul v-else>
+  <div class="todo-list">
+    <h1 class="center">Lista de tareas</h1>
+    <h3 class="center" v-if="items.length == 0">No hay tareas pendientes</h3>
+    <ul class="center" v-else>
       <li v-for="(item, index) in items" :key="index">
         <input
           type="checkbox"
-          :value="index"
           v-model="item.checked"
           @click="onClickCheckbox(item)"
         />
         {{ item.name }}
-        <a href="#" style="color: blue" @click="deleteItem(item)">Borrar</a>
+        <a href="#" @click="deleteItem(index)">Borrar</a>
       </li>
     </ul>
-    <div>
+    <div class="center">
       <h3>Agregar nuevo:</h3>
       <input type="text" placeholder="Escribe aquí..." v-model="newItemName" />
       <input type="button" value="Agregar" @click="addItem" />
@@ -56,15 +55,29 @@ export default {
 </script>
 
 <style>
+.todo-list {
+  /* width: 40%;
+  margin: 0 auto; */
+  float: left;
+  position: relative;
+  left: 50%;
+}
+
+.center {
+  left: -50%;
+  position: relative;
+}
 li {
   margin: 0px;
-  padding: 10px;
+  padding: 5px;
+  text-align: left;
 }
 ul {
   padding-inline-start: 0px;
-  text-align: center;
-}
-pre {
-  display: inline-block;
+  /* text-align: center; */
+  list-style-type: none;
+
+  background-color: bisque;
+  padding: 20px;
 }
 </style>
