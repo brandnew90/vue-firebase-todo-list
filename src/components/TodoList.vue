@@ -10,7 +10,7 @@
           @click="onClickCheckbox(item)"
         />
         {{ item.name }}
-        <a href="#" @click="deleteItem(index)">Borrar</a>
+        <a href="#" @click="deleteItem(item)">Borrar</a>
       </li>
     </ul>
     <div class="center">
